@@ -17,7 +17,7 @@
     <h1>Customer Accounts</h1>
     
     <div class="container">
-        <table border="1" cellpadding="5">
+        <table>
             <tr>
                 <th>Name</th>
                 <th>Email</th>

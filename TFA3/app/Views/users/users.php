@@ -15,7 +15,7 @@
     </nav>
 
     <h1>User Accounts</h1>
-    
+
     <div class="container">
         <div class="top-bar">
             <a href="/users/new" class="button">
@@ -29,7 +29,7 @@
             </div>
         <?php endif; ?>
 
-        <table border="1" cellpadding="5">
+        <table>
             <thead>
                 <tr>
                     <th>Avatar</th>
