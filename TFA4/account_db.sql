@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 02, 2026 at 04:49 PM
+-- Generation Time: Oct 05, 2026 at 02:29 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -55,6 +55,7 @@ INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALU
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `avatar` varchar(255) DEFAULT NULL,
   `created_at` datetime NOT NULL
@@ -64,12 +65,12 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `avatar`, `created_at`) VALUES
-(1, 'admin', 'John Administrator', '', '2026-09-18 19:47:17'),
-(2, 'cashier1', 'Sarah Cruz', '', '2026-09-18 19:47:17'),
-(3, 'cashier2', 'Mark Santos', '', '2026-09-18 19:47:17'),
-(4, 'staff1', 'Jenny Reyes', '', '2026-09-18 19:47:17'),
-(5, 'manager1', 'Robert Lim', '', '2026-09-18 19:47:17');
+INSERT INTO `users` (`id`, `username`, `password`, `full_name`, `avatar`, `created_at`) VALUES
+(1, 'admin', '$2y$10$QwMoIImHECf8wrmAJWEE/OM5vrUadw0VRQdxyozBoskrrinzNJeZ6', 'John Administrator', 'thumb_1791171970_50d5ef1b35cf034a3c44.png', '2026-09-18 19:47:17'),
+(2, 'cashier1', '$2y$10$GOqm18iHVp2gtr6kYbiXkOah4mDaLla496N1zt1FmL6oR2.0yykf.', 'Sarah Cruz', '', '2026-09-18 19:47:17'),
+(3, 'cashier2', '$2y$10$S5AMHpn3qyLMJbaKOC0ApeliWNruiHzfn7e49nC5v8d6jATBO921.', 'Mark Santos', '', '2026-09-18 19:47:17'),
+(4, 'staff1', '$2y$10$KguA1eCtujsEARfGY54/YeNKaBFS/3fu6VayBjsIbXz.zeE/dUyba', 'Jenny Reyes', '', '2026-09-18 19:47:17'),
+(5, 'manager1', '$2y$10$6POeISu5T1FQeaBM8ajNFOGBiIePhScR8rZRTevWpfaHjlxCzrHSS', 'Robert Lim', '', '2026-09-18 19:47:17');
 
 --
 -- Indexes for dumped tables
