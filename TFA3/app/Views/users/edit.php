@@ -23,7 +23,7 @@
             </div>
         <?php endif; ?>
 
-        <form action="/users/update/<?= $user['id'] ?>" method="post">
+        <form action="/users/update/<?= $user['id'] ?>" method="post" enctype="multipart/form-data">
             <?= csrf_field() ?>
 
             <label for="username">Username</label>

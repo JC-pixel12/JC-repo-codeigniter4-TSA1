@@ -114,11 +114,14 @@ class Users extends BaseController
                 
                 $filename = $avatar->getRandomName();
 
-                $avatar->move($uploadPath, $filename);
+                $avatar->move($uploadPath, 'thumb_' . $filename);
 
-                $image->withFile($uploadPath . $filename)
-                    ->fit(200, 200, 'center')
-                    ->save($uploadPath . 'thumb_' . $filename);
+
+                // $image = service('image');
+
+                // $image->withFile($uploadPath . $filename)
+                //     ->fit(200, 200, 'center')
+                //     ->save($uploadPath . 'thumb_' . $filename);
 
                 $thumbnailFilename = 'thumb_' . $filename;
 
