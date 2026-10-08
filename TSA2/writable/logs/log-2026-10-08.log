@@ -1,0 +1,246 @@
+ERROR - 2026-10-08 02:28:47 --> Error connecting to the database: mysqli_sql_exception: No connection could be made because the target machine actively refused it in C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\MySQLi\Connection.php:201
+Stack trace:
+#0 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\MySQLi\Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'tasks_db', 3306, '', 0)
+#1 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\app\Controllers\Pages.php(12): CodeIgniter\BaseModel->findAll()
+#7 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\CodeIgniter.php(974): App\Controllers\Pages->index()
+#8 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#9 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\rewrite.php(44): require_once('C:\\Users\\gary_\\...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No connection could be made because the target machine actively refused it in C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\MySQLi\Connection.php:231
+Stack trace:
+#0 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\app\Controllers\Pages.php(12): CodeIgniter\BaseModel->findAll()
+#6 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\CodeIgniter.php(974): App\Controllers\Pages->index()
+#7 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+#8 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 C:\Users\gary_\Documents\GitHub\JC-repo-codeigniter4-TSA1\TSA1\system\rewrite.php(44): require_once('C:\\Users\\gary_\\...')
+#13 {main}
+CRITICAL - 2026-10-08 02:28:47 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: No connection could be made because the target machine actively refused it
+[Method: GET, Route: /]
+in SYSTEMPATH\Database\BaseConnection.php on line 606.
+ 1 SYSTEMPATH\Database\BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tasks`
+WHERE `task_date` = :task_date:', [...], false)
+ 3 SYSTEMPATH\Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH\Controllers\Pages.php(12): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Pages->index()
+ 7 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pages))
+ 8 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 07:58:53 --> Error: Class "App\Controllers\TaskModel" not found
+[Method: GET, Route: tasks]
+in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 07:59:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 07:59:40 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "tasks/index.php"
+[Method: GET, Route: tasks]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('tasks/index.php')
+ 2 SYSTEMPATH\Common.php(1268): CodeIgniter\View\View->render('tasks/index', [], true)
+ 3 APPPATH\Controllers\Tasks.php(23): view('tasks/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Tasks->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tasks))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 08:00:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 08:00:24 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "tasks/index.php"
+[Method: GET, Route: tasks]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('tasks/index.php')
+ 2 SYSTEMPATH\Common.php(1268): CodeIgniter\View\View->render('tasks/index', [], true)
+ 3 APPPATH\Controllers\Tasks.php(23): view('tasks/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Tasks->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tasks))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 08:00:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 08:00:52 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "tasks/index.php"
+[Method: GET, Route: tasks]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('tasks/index.php')
+ 2 SYSTEMPATH\Common.php(1268): CodeIgniter\View\View->render('tasks/index', [], true)
+ 3 APPPATH\Controllers\Tasks.php(23): view('tasks/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Tasks->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tasks))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 08:00:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 08:00:55 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "tasks/index.php"
+[Method: GET, Route: tasks]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('tasks/index.php')
+ 2 SYSTEMPATH\Common.php(1268): CodeIgniter\View\View->render('tasks/index', [], true)
+ 3 APPPATH\Controllers\Tasks.php(23): view('tasks/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Tasks->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tasks))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 08:00:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 08:00:57 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "tasks/index.php"
+[Method: GET, Route: tasks]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('tasks/index.php')
+ 2 SYSTEMPATH\Common.php(1268): CodeIgniter\View\View->render('tasks/index', [], true)
+ 3 APPPATH\Controllers\Tasks.php(23): view('tasks/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Tasks->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tasks))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 08:01:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 08:01:01 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "tasks/index.php"
+[Method: GET, Route: tasks]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('tasks/index.php')
+ 2 SYSTEMPATH\Common.php(1268): CodeIgniter\View\View->render('tasks/index', [], true)
+ 3 APPPATH\Controllers\Tasks.php(23): view('tasks/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Tasks->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tasks))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 08:02:19 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+CRITICAL - 2026-10-08 08:02:19 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "tasks/index.php"
+[Method: GET, Route: tasks]
+in SYSTEMPATH\Exceptions\FrameworkException.php on line 39.
+ 1 SYSTEMPATH\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('tasks/index.php')
+ 2 SYSTEMPATH\Common.php(1268): CodeIgniter\View\View->render('tasks/index', [], true)
+ 3 APPPATH\Controllers\Tasks.php(23): view('tasks/index', [...])
+ 4 SYSTEMPATH\CodeIgniter.php(974): App\Controllers\Tasks->index()
+ 5 SYSTEMPATH\CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Tasks))
+ 6 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+WARNING - 2026-10-08 08:03:57 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+DEBUG - 2026-10-08 08:03:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-10-08 08:04:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+DEBUG - 2026-10-08 08:04:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-10-08 08:04:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+DEBUG - 2026-10-08 08:04:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-10-08 08:04:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2026-10-08 08:04:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\Tasks::$tasksModel is deprecated in APPPATH\Controllers\Tasks.php on line 13.
+ 1 SYSTEMPATH\CodeIgniter.php(944): App\Controllers\Tasks->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(511): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\Users\\gary_\\Documents\\GitHub\\JC-repo-codeigniter4-TSA1\\TSA1\\public\\index.php')
+DEBUG - 2026-10-08 08:04:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
