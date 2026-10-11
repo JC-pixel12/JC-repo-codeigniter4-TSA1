@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2026 at 08:57 AM
+-- Generation Time: Oct 11, 2026 at 12:42 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -32,6 +32,7 @@ CREATE TABLE `tasks` (
   `title` varchar(150) NOT NULL,
   `status` varchar(20) NOT NULL DEFAULT 'pending',
   `task_date` date NOT NULL,
+  `is_archived` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -39,15 +40,16 @@ CREATE TABLE `tasks` (
 -- Dumping data for table `tasks`
 --
 
-INSERT INTO `tasks` (`id`, `title`, `status`, `task_date`, `created_at`) VALUES
-(1, 'Technical Summative 1', 'pending', '2026-09-19', '2026-09-19 13:50:12'),
-(2, 'Technical Summative 2', 'pending', '2026-09-19', '2026-09-19 13:50:12'),
-(3, 'Summative 1', 'pending', '2026-09-19', '2026-09-19 13:50:12'),
-(4, 'Midterm Exam 1', 'pending', '2026-09-19', '2026-09-19 13:50:12'),
-(5, 'Project', 'pending', '2026-09-19', '2026-09-19 13:50:12'),
-(6, 'Final Exam 1', 'finished', '2026-10-19', '2026-09-19 13:50:12'),
-(7, 'Final Exam 2', 'finished', '2026-11-19', '2026-09-19 13:50:12'),
-(8, 'Final Exam 3', 'finished', '2026-12-19', '2026-09-19 13:50:12');
+INSERT INTO `tasks` (`id`, `title`, `status`, `task_date`, `is_archived`, `created_at`) VALUES
+(1, 'Technical Summative 1', 'pending', '2026-09-19', 0, '2026-09-19 13:50:12'),
+(2, 'Technical Summative 2', 'pending', '2026-09-19', 0, '2026-09-19 13:50:12'),
+(3, 'Summative 1', 'pending', '2026-09-19', 0, '2026-09-19 13:50:12'),
+(4, 'Midterm Exam 1', 'finished', '2026-09-19', 0, '2026-09-19 13:50:12'),
+(5, 'Project', 'pending', '2026-09-19', 0, '2026-09-19 13:50:12'),
+(6, 'Final Exam 1', 'finished', '2026-10-19', 0, '2026-09-19 13:50:12'),
+(7, 'Final Exam 2', 'finished', '2026-11-19', 0, '2026-09-19 13:50:12'),
+(8, 'Final Exam 3', 'finished', '2026-12-19', 0, '2026-09-19 13:50:12'),
+(9, 'New Task1', 'pending', '2026-10-30', 0, '2026-10-11 10:25:54');
 
 -- --------------------------------------------------------
 
@@ -60,6 +62,7 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `full_name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -67,8 +70,8 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `full_name`, `email`, `created_at`) VALUES
-(1, 'admin', 'John Administrator', 'john@gmail.com', '2026-09-19 13:37:18');
+INSERT INTO `users` (`id`, `username`, `full_name`, `email`, `password`, `created_at`) VALUES
+(1, 'admin', 'John Administrator', 'john@gmail.com', '$2y$12$Hnb0L3MUVJyFiRxanvyLmuQ5Sqck4VmMw.DE7yiX.nVH7.YLzN0CS', '2026-09-19 13:37:18');
 
 --
 -- Indexes for dumped tables
@@ -95,7 +98,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users`
