@@ -36,52 +36,52 @@
 </head>
 <body>
 
-<h1>Login</h1>
+    <h1>Login</h1>
 
-<?php if (session()->getFlashdata('error')): ?>
-    <p class="error">
-        <?= esc(session()->getFlashdata('error')) ?>
+    <?php if (session()->getFlashdata('error')): ?>
+        <p class="error">
+            <?= esc(session()->getFlashdata('error')) ?>
+        </p>
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('success')): ?>
+        <p class="success">
+            <?= esc(session()->getFlashdata('success')) ?>
+        </p>
+    <?php endif; ?>
+
+    <form action="<?= base_url('/login') ?>" method="post">
+
+        <?= csrf_field() ?>
+
+        <label>Username</label>
+        <input
+            type="text"
+            name="username"
+            value="<?= old('username') ?>"
+            required
+        >
+
+        <label>Password</label>
+        <input
+            type="password"
+            name="password"
+            required
+        >
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p>
+        Demo account:
+        <strong>admin</strong> /
+        <strong>admin123</strong>
     </p>
-<?php endif; ?>
 
-<?php if (session()->getFlashdata('success')): ?>
-    <p class="success">
-        <?= esc(session()->getFlashdata('success')) ?>
+    <p>
+        <a href="<?= base_url('/') ?>">Back to Welcome</a>
     </p>
-<?php endif; ?>
-
-<form action="<?= base_url('/login') ?>" method="post">
-
-    <?= csrf_field() ?>
-
-    <label>Username</label>
-    <input
-        type="text"
-        name="username"
-        value="<?= old('username') ?>"
-        required
-    >
-
-    <label>Password</label>
-    <input
-        type="password"
-        name="password"
-        required
-    >
-
-    <button type="submit">Login</button>
-
-</form>
-
-<p>
-    Demo account:
-    <strong>admin</strong> /
-    <strong>admin123</strong>
-</p>
-
-<p>
-    <a href="<?= base_url('/') ?>">Back to Welcome</a>
-</p>
 
 </body>
 </html>
