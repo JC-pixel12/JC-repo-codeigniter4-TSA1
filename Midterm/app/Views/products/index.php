@@ -15,82 +15,84 @@
         <a href="/users">Staff</a>
         <a href="/sales/new">Record Sale</a>
         <a href="/sales">Sales History</a>
-        <span>Logged in as: <?= esc(session()->get('username')) ?></span>
+        
+        <span>
+            Logged in as: <?= esc(session()->get('username')) ?>
+        </span>
         <a href="/logout">Logout</a>
     </nav>
     
     <h1>Product Management</h1>
 
-    <hr>
+    <div class="container">
+        <a href="/products/new">Add New Product</a>
 
-    <a href="/products/new">Add New Product</a>
+        <?php if (session()->getFlashdata('success')): ?>
+            <p><?= esc(session()->getFlashdata('success')) ?></p>
+        <?php endif; ?>
 
-    <?php if (session()->getFlashdata('success')): ?>
-        <p><?= esc(session()->getFlashdata('success')) ?></p>
-    <?php endif; ?>
+        <?php if (session()->getFlashdata('error')): ?>
+            <p><?= esc(session()->getFlashdata('error')) ?></p>
+        <?php endif; ?>
 
-    <?php if (session()->getFlashdata('error')): ?>
-        <p><?= esc(session()->getFlashdata('error')) ?></p>
-    <?php endif; ?>
+        <table border="1" cellpadding="8">
+            <thead>
+                <tr>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Created</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
 
-    <table border="1" cellpadding="8">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Stock</th>
-                <th>Created</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
+            <tbody>
+            <?php foreach ($products as $product): ?>
+                <tr>
 
-        <tbody>
-        <?php foreach ($products as $product): ?>
-            <tr>
+                    <td>
+                        <?php if (!empty($product['image'])): ?>
+                            <img
+                                src="/uploads/products/<?= esc($product['image']) ?>"
+                                width="100"
+                                height="100"
+                                alt="<?= esc($product['name']) ?>"
+                            >
+                        <?php else: ?>
+                            No Image
+                        <?php endif; ?>
+                    </td>
 
-                <td>
-                    <?php if (!empty($product['image'])): ?>
-                        <img
-                            src="/uploads/products/<?= esc($product['image']) ?>"
-                            width="100"
-                            height="100"
-                            alt="<?= esc($product['name']) ?>"
+                    <td><?= esc($product['name']) ?></td>
+
+                    <td>
+                        ₱<?= number_format($product['price'], 2) ?>
+                    </td>
+
+                    <td><?= esc($product['stock_quantity']) ?></td>
+
+                    <td><?= esc($product['created_at']) ?></td>
+
+                    <td>
+                        <a href="/products/edit/<?= $product['id'] ?>">
+                            Edit
+                        </a>
+
+                        |
+
+                        <a
+                            href="/products/delete/<?= $product['id'] ?>"
+                            onclick="return confirm('Delete this product?')"
                         >
-                    <?php else: ?>
-                        No Image
-                    <?php endif; ?>
-                </td>
+                            Delete
+                        </a>
+                    </td>
 
-                <td><?= esc($product['name']) ?></td>
-
-                <td>
-                    ₱<?= number_format($product['price'], 2) ?>
-                </td>
-
-                <td><?= esc($product['stock_quantity']) ?></td>
-
-                <td><?= esc($product['created_at']) ?></td>
-
-                <td>
-                    <a href="/products/edit/<?= $product['id'] ?>">
-                        Edit
-                    </a>
-
-                    |
-
-                    <a
-                        href="/products/delete/<?= $product['id'] ?>"
-                        onclick="return confirm('Delete this product?')"
-                    >
-                        Delete
-                    </a>
-                </td>
-
-            </tr>
-        <?php endforeach; ?>
-        </tbody>
-    </table>
-
+                </tr>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>                        
 </body>
 </html>

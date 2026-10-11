@@ -8,21 +8,18 @@
 </head>
 <body>
     <nav>
-        <a href="<?= "/" ?>">Home</a>
-        <a href="<?= "/about" ?>">About</a>
-        <a href="<?= "/customers" ?>">Customers Accounts</a>
-        <a href="<?= "/users" ?>">Users Accounts</a>
-
-        <?php if (session()->get('isLoggedIn')): ?>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/products">Products</a>
+        <a href="/customers">Customers</a>
+        <a href="/users">Staff</a>
+        <a href="/sales/new">Record Sale</a>
+        <a href="/sales">Sales History</a>
 
         <span>
-            Logged in as:
-            <?= esc(session()->get('username')) ?>
+            Logged in as: <?= esc(session()->get('username')) ?>
         </span>
-
         <a href="/logout">Logout</a>
-
-    <?php endif; ?>
     </nav>
 
     <div class="container">

@@ -16,19 +16,18 @@
         <a href="/sales/new">Record Sale</a>
         <a href="/sales">Sales History</a>
 
-        <?php if (session()->get('isLoggedIn')): ?>
-
         <span>
-            Logged in as:<?= esc(session()->get('username')) ?>
+            Logged in as: <?= esc(session()->get('username')) ?>
         </span>
-
         <a href="/logout">Logout</a>
-
-    <?php endif; ?>
     </nav>
-
+    
     <h1>About Us</h1>
+
+    <div class="container">
+
     
     <p>This is a simple about page for the POS system.</p>
+    </div>
 </body>
 </html>

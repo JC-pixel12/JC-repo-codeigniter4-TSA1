@@ -19,7 +19,7 @@
         <?php if (session()->get('isLoggedIn')): ?>
 
         <span>
-            Logged in as:<?= esc(session()->get('username')) ?>
+            Logged in as: <?= esc(session()->get('username')) ?>
         </span>
 
         <a href="/logout">Logout</a>

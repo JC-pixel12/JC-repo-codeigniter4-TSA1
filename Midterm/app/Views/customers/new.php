@@ -13,16 +13,10 @@
         <a href="<?= "/customers" ?>">Customers Accounts</a>
         <a href="<?= "/users" ?>">Users Accounts</a>
 
-        <?php if (session()->get('isLoggedIn')): ?>
-
         <span>
-            Logged in as:
-            <?= esc(session()->get('username')) ?>
+            Logged in as: <?= esc(session()->get('username')) ?>
         </span>
-
         <a href="/logout">Logout</a>
-
-    <?php endif; ?>
     </nav>
 
     <div class="container">

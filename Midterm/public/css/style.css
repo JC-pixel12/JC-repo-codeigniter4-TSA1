@@ -80,3 +80,7 @@ th, td {
     width: 100px;
     height: 100px;
 }
+
+span {
+    margin-left: 300px;
+}

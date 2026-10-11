@@ -8,16 +8,17 @@
 </head>
 <body>
     <nav>
-        <a href="/products">Products</a> |
-        <a href="/customers">Customers</a> |
-        <a href="/users">Staff</a> |
-        <a href="/sales">Sales History</a> |
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/products">Products</a>
+        <a href="/customers">Customers</a>
+        <a href="/users">Staff</a>
+        <a href="/sales/new">Record Sale</a>
+        <a href="/sales">Sales History</a>
         <a href="/logout">Logout</a>
     </nav>
 
     <h1>Record Sale</h1>
-
-    <hr>
 
     <?php if (session()->getFlashdata('error')): ?>
         <p>
@@ -30,70 +31,70 @@
     <?php if (isset($validation)): ?>
         <?= $validation->listErrors() ?>
     <?php endif; ?>
+    <div class="container">
+        <form action="/sales/create" method="post">
 
-    <form action="/sales/create" method="post">
+            <?= csrf_field() ?>
 
-        <?= csrf_field() ?>
+            <label>Product:</label><br>
 
-        <label>Product:</label><br>
+            <select name="product_id" required>
 
-        <select name="product_id" required>
+                <option value="">-- Select Product --</option>
 
-            <option value="">-- Select Product --</option>
+                <?php foreach ($products as $product): ?>
 
-            <?php foreach ($products as $product): ?>
+                    <option
+                        value="<?= $product['id'] ?>"
+                        <?= old('product_id') == $product['id'] ? 'selected' : '' ?>
+                    >
+                        <?= esc($product['name']) ?>
+                        -
+                        ₱<?= number_format($product['price'], 2) ?>
+                        -
+                        Stock: <?= $product['stock_quantity'] ?>
+                    </option>
 
-                <option
-                    value="<?= $product['id'] ?>"
-                    <?= old('product_id') == $product['id'] ? 'selected' : '' ?>
-                >
-                    <?= esc($product['name']) ?>
-                    -
-                    ₱<?= number_format($product['price'], 2) ?>
-                    -
-                    Stock: <?= $product['stock_quantity'] ?>
-                </option>
+                <?php endforeach; ?>
 
-            <?php endforeach; ?>
+            </select>
 
-        </select>
+            <br><br>
 
-        <br><br>
+            <label>Customer:</label><br>
 
-        <label>Customer:</label><br>
+            <select name="customer_id">
 
-        <select name="customer_id">
+                <option value="">Walk-in Customer</option>
 
-            <option value="">Walk-in Customer</option>
+                <?php foreach ($customers as $customer): ?>
 
-            <?php foreach ($customers as $customer): ?>
+                    <option
+                        value="<?= $customer['id'] ?>"
+                        <?= old('customer_id') == $customer['id'] ? 'selected' : '' ?>
+                    >
+                        <?= esc($customer['full_name']) ?>
+                    </option>
 
-                <option
-                    value="<?= $customer['id'] ?>"
-                    <?= old('customer_id') == $customer['id'] ? 'selected' : '' ?>
-                >
-                    <?= esc($customer['full_name']) ?>
-                </option>
+                <?php endforeach; ?>
 
-            <?php endforeach; ?>
+            </select>
 
-        </select>
+            <br><br>
 
-        <br><br>
+            <label>Quantity:</label><br>
 
-        <label>Quantity:</label><br>
+            <input type="number" name="quantity" min="1" value="<?= old('quantity', 1) ?>" required>
 
-        <input type="number" name="quantity" min="1" value="<?= old('quantity', 1) ?>" required>
+            <br><br>
 
-        <br><br>
+            <button type="submit">Record Sale</button>
 
-        <button type="submit">Record Sale</button>
+        </form>
 
-    </form>
+        <br>
 
-    <br>
-
-    <a href="/sales">Back to Sales</a>
-
+        <a href="/sales">Back to Sales</a>
+    </div>                
 </body>
 </html>

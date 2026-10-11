@@ -16,11 +16,10 @@
         <a href="/sales/new">Record Sale</a>
         <a href="/sales">Sales History</a>
 
-        <span>Logged in as:<?= esc(session()->get('username')) ?></span>
-
+        <span>
+            Logged in as: <?= esc(session()->get('username')) ?>
+        </span>
         <a href="/logout">Logout</a>
-
-
     </nav>
 
     <h1>User Accounts</h1>

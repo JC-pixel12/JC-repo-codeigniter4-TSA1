@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\UsersModel;
 
 class Auth extends BaseController
 {
@@ -19,9 +19,9 @@ class Auth extends BaseController
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
-        $userModel = new UserModel();
+        $usersModel = new UsersModel();
 
-        $user = $userModel
+        $user = $usersModel
             ->where('username', $username)
             ->first();
 
