@@ -1,84 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 500px;
-            margin: 50px auto;
-        }
-
-        input {
-            width: 100%;
-            padding: 10px;
-            margin: 8px 0 15px;
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-
-        .error {
-            color: red;
-            margin-bottom: 15px;
-        }
-
-        .success {
-            color: green;
-            margin-bottom: 15px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Task</title>
 </head>
 <body>
 
-    <h1>Login</h1>
+    <h1>Create New Task</h1>
 
-    <?php if (session()->getFlashdata('error')): ?>
-        <p class="error">
-            <?= esc(session()->getFlashdata('error')) ?>
-        </p>
+    <?php if (session()->getFlashdata('errors')): ?>
+
+        <ul>
+            <?php foreach (session()->getFlashdata('errors') as $error): ?>
+                <li><?= esc($error) ?></li>
+            <?php endforeach; ?>
+        </ul>
+
     <?php endif; ?>
 
-    <?php if (session()->getFlashdata('success')): ?>
-        <p class="success">
-            <?= esc(session()->getFlashdata('success')) ?>
-        </p>
-    <?php endif; ?>
-
-    <form action="<?= base_url('/login') ?>" method="post">
+    <form action="<?= base_url('/tasks/create') ?>" method="post">
 
         <?= csrf_field() ?>
 
-        <label>Username</label>
-        <input
-            type="text"
-            name="username"
-            value="<?= old('username') ?>"
-            required
-        >
+        <p>
+            <label>Title</label><br>
+            <input
+                type="text"
+                name="title"
+                value="<?= old('title') ?>"
+                required
+            >
+        </p>
 
-        <label>Password</label>
-        <input
-            type="password"
-            name="password"
-            required
-        >
+        <p>
+            <label>Status</label><br>
 
-        <button type="submit">Login</button>
+            <select name="status">
+                <option value="pending">Pending</option>
+                <option value="finished">Finished</option>
+            </select>
+        </p>
+
+        <p>
+            <label>Task Date</label><br>
+            <input
+                type="date"
+                name="task_date"
+                value="<?= old('task_date') ?>"
+                required
+            >
+        </p>
+
+        <button type="submit">Create Task</button>
 
     </form>
 
     <p>
-        Demo account:
-        <strong>admin</strong> /
-        <strong>admin123</strong>
-    </p>
-
-    <p>
-        <a href="<?= base_url('/') ?>">Back to Welcome</a>
+        <a href="<?= base_url('/tasks') ?>">Back to Tasks</a>
     </p>
 
 </body>

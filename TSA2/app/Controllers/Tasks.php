@@ -6,7 +6,7 @@ use App\Models\TasksModel;
 
 class Tasks extends BaseController
 {
-    protected $taskModel;
+    protected $tasksModel;
 
     public function __construct()
     {
@@ -43,7 +43,7 @@ class Tasks extends BaseController
                 ->with('errors', $this->validator->getErrors());
         }
 
-        $this->taskModel->insert([
+        $this->tasksModel->insert([
             'title' => $this->request->getPost('title'),
             'status' => $this->request->getPost('status') ?? 'pending',
             'task_date' => $this->request->getPost('task_date'),
@@ -58,7 +58,7 @@ class Tasks extends BaseController
     // Edit form
     public function edit($id)
     {
-        $task = $this->taskModel
+        $task = $this->tasksModel
             ->where('id', $id)
             ->where('is_archived', 0)
             ->first();
@@ -88,7 +88,7 @@ class Tasks extends BaseController
                 ->with('errors', $this->validator->getErrors());
         }
 
-        $task = $this->taskModel
+        $task = $this->tasksModel
             ->where('id', $id)
             ->where('is_archived', 0)
             ->first();
@@ -99,7 +99,7 @@ class Tasks extends BaseController
             );
         }
 
-        $this->taskModel->update($id, [
+        $this->tasksModel->update($id, [
             'title' => $this->request->getPost('title'),
             'status' => $this->request->getPost('status'),
             'task_date' => $this->request->getPost('task_date')
@@ -112,7 +112,7 @@ class Tasks extends BaseController
     // Soft delete / archive
     public function delete($id)
     {
-        $task = $this->taskModel
+        $task = $this->tasksModel
             ->where('id', $id)
             ->where('is_archived', 0)
             ->first();
@@ -123,7 +123,7 @@ class Tasks extends BaseController
             );
         }
 
-        $this->taskModel->update($id, [
+        $this->tasksModel->update($id, [
             'is_archived' => 1
         ]);
 
